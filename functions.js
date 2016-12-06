@@ -13,9 +13,8 @@ function __getCurrentDateTime(format='yyyy-mm-dd hh:ii:ss',dt=new Date()){
 	date['s']=dt.getSeconds();
 	date['ss']=dt.getSeconds()<10?('0'+dt.getSeconds()):dt.getSeconds();
 	date['sss']=dt.getMilliseconds();
-	date['ampm']=(dt.getHours()>=12?'PM':'AM');
+	date['a']=(dt.getHours()>=12?'PM':'AM');
 	x=format.toLowerCase();
-	if(x.indexOf('ampm')!=-1){	x=x.replace(/(ampm)/,date['ampm']);	}
 	x=x.indexOf('dd')!=-1?x.replace(/(dd)/,date['dd']):x.replace(/(d)/i,date['d']);
 	x=x.indexOf('mm')!=-1?x.replace(/(mm)/,date['mm']):x.replace(/(m)/,date['m']);
 	x=x.indexOf('yyyy')!=-1?x.replace(/(yyyy)/,date['yyyy']):x.replace(/(yy)/,date['yy']);
@@ -23,6 +22,7 @@ function __getCurrentDateTime(format='yyyy-mm-dd hh:ii:ss',dt=new Date()){
 	x=x.indexOf('ii')!=-1?x.replace(/(ii)/,date['ii']):x.replace(/(i)/,date['i']);
 	if(x.indexOf('sss')!=-1){	x=x.replace(/(sss)/,date['sss']);	}
 	x=x.indexOf('ss')!=-1?x.replace(/(ss)/,date['ss']):x.replace(/(s)/,date['s']);
+	if(x.indexOf('a')!=-1){	x=x.replace(/(a)/,date['a']);	}
 	return x;
 }
 
