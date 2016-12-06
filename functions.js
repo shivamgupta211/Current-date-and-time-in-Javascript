@@ -27,6 +27,7 @@ function __getCurrentDateTime(format='yyyy-mm-dd hh:mimi:ss',dt=new Date()){
 }
 
 function __getBackDateTime(f,format){
+	//f='d+10 m-5 y+2 h-1 m+10 s-5 ';
 	f=f.toLowerCase().split(' ');
 	var dt=new Date(),arr={};
 	for(var i in f){ 	arr[f[i].slice(0,1)]=f[i].substr(1);	}
