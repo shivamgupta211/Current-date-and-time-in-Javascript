@@ -1,9 +1,9 @@
-function __getCurrentDateTime(format){
-	var dt=new Date(),x,date=[];
+function __getCurrentDateTime(format='yyyy-mm-dd hh:mimi:ss',dt=new Date()){
+	var x,date=[];
 	date['d']=dt.getDate();
 	date['dd']=dt.getDate()>10?dt.getDate():'0'+dt.getDate();
 	date['m']=dt.getMonth()+1;
-	date['mm']=(dt.getMonth()+1)>10?(dt.getMonth()+1):'0'+(dt.getMonth()+1);
+	date['mm']=(dt.getMonth()+1)>=10?(dt.getMonth()+1):'0'+(dt.getMonth()+1);
 	date['yyyy']=dt.getFullYear();
 	date['yy']=dt.getFullYear().toString().slice(-2);
 	date['h']=(dt.getHours()>12?dt.getHours()-12:dt.getHours());
@@ -25,7 +25,6 @@ function __getCurrentDateTime(format){
 	if(x.indexOf('ampm')!=-1){	x=x.replace(/(ampm)/i,date['ampm']);	}
 	return x;
 }
-
 
 function __getBackDateTime(f,format){
 	f=f.toLowerCase().split(' ');
