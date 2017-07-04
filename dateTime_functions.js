@@ -171,6 +171,39 @@ function __getDatesBetween(dates,format){
 	return arr;
 }
 
+/*
+	__compareTime is used to compare times
+	param :
+		t1 : time
+		t2 : time
+		format(string) : the format in which you are providing time ex '12' => '12 hours format' & '24'=>'24 hours format'
+*/
+function __compareTime(t1,t2,format){
+	format = format?format:'12';
+	if(format=='12'){
+		t1 = __convert12To24Time(t1,'24');
+		t2 = __convert12To24Time(t2,'24');
+	}
+	
+	t1 = t1.split(':').map(function(e){	return +e;	});
+	t2 = t2.split(':').map(function(e){	return +e;	});
+	var flag = false;
+	if(t1[0]>t2[0]){	flag = 1;	}
+	else if(t1[0]<t2[0]){	flag = -1;	}
+	else {
+		if(t1[1]>t2[1]){	flag = 1;	}
+		else if(t1[1]<t2[1]){	flag = -1;	}
+		else{
+			if(t1[2]>t2[2]){	flag = 1;	}
+			else if(t1[2]<t2[2]){	flag = -1;	}
+			else{
+				flag = 0;
+			}
+		}
+	}
+	return flag;
+}
+
 
 /*
 	__getDateObject is used to convert date into DateTime object
