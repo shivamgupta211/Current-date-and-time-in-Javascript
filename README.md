@@ -1,2 +1,3 @@
-# Date-time-Functions-in-Javascript
-Current Date and Time in javascript in any simple format
+# Date time Functions in Javascript
+
+Functions to play with date and time in javascript
